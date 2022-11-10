@@ -2344,7 +2344,7 @@
 
 ## css装饰-溢出显示
 
-> 当我们不限定盒子的大小时，盒子的大小会由内容撑开，但是当盒子的大小限定时，盒子的内容超出时，我们需要将其限定成我们需要的样子。
+> 当我们不限定盒子的大小时，盒子的大小会由内容撑开，但是当盒子的大小限定时，盒子的内容超出时，默认状态它会超出显示，这就是溢出，然而我们需要将其限定成我们需要的样子。
 
 > ```html
 > <!DOCTYPE html>
@@ -2648,3 +2648,47 @@
 > </body>
 > </html>
 > ```
+
+## 清除默认样式
+
+> 在实际开发中，我们往往需要做一些准备工作，清楚默认样式就是一个准备工作
+>
+> ```css
+> /* 清除浏览器默认样式 */
+> * {
+>   margin: 0;
+>   padding: 0;
+>   /* 内减模式 */
+>   box-sizing: border-box;
+> }
+> 
+> li {
+>     /* 清除li自带的点 */
+>   list-style: none;
+> }
+> 
+> a {
+>     /* 清除链接自带的下划线 */
+>   text-decoration: none;
+> }
+> 
+> /* 清除浮动 */
+> .clearfix::before,
+> .clearfix::after {
+>   content: '';
+>   display: table;
+> }
+> .clearfix::after {
+>   clear: both;
+> }
+> body{
+>     background-color: #f3f5f7;
+> }
+> /* 版心居中 */
+> .wrapper{
+>     width: 1200px;
+>     margin: 0 auto;
+> }
+> ```
+>
+> 
